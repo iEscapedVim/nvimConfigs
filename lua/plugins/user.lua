@@ -4,7 +4,10 @@
 ---@type LazySpec
 return {
 
+  -- Catppuccin Mocha Theme
   { "catppuccin/nvim", name = "mocha", priority = 1000 },
+  -- Codeium auto complete AI plugin
+  {'Exafunction/codeium.vim', event = 'BufEnter'},
 
    -- customize alpha options
   {
@@ -12,17 +15,10 @@ return {
     opts = function(_, opts)
       -- customize the dashboard header
       opts.section.header.val = {
-        " █████  ███████ ████████ ██████   ██████",
-        "██   ██ ██         ██    ██   ██ ██    ██",
-        "███████ ███████    ██    ██████  ██    ██",
-        "██   ██      ██    ██    ██   ██ ██    ██",
-        "██   ██ ███████    ██    ██   ██  ██████",
-        " ",
-        "    ███    ██ ██    ██ ██ ███    ███",
-        "    ████   ██ ██    ██ ██ ████  ████",
-        "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-        "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-        "    ██   ████   ████   ██ ██      ██",
+      " •┏┓         ┓┓┏•    ", 
+      " ┓┣ ┏┏┏┓┏┓┏┓┏┫┃┃┓┏┳┓ ",
+      " ┗┗┛┛┗┗┻┣┛┗ ┗┻┗┛┗┛┗┗ ",
+      "        ┛            ",
       }
       return opts
     end,
