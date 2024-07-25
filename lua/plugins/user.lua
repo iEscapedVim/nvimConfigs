@@ -32,13 +32,12 @@ return {
         desc = "Format buffer",
       },
     },
-    opts = function(_, opts)
-      opts.fomatters_by_ft = {
-        html = { "htmlbeautifier" },
-        lua = { "luaformatter" },
+    opts = {
+      formatters_by_ft = {
+          html = { "htmlbeautifier" },
+          lua  = { "stylua" },
       }
-      return opts
-    end,
+    }
   },
 
   -- customize alpha options
