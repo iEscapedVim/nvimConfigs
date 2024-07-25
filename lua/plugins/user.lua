@@ -5,20 +5,52 @@
 return {
 
   -- Catppuccin Mocha Theme
-  { "catppuccin/nvim", name = "mocha", priority = 1000 },
-  -- Codeium auto complete AI plugin
-  {'Exafunction/codeium.vim', event = 'BufEnter'},
+  {
+    "catppuccin/nvim",
+    name = "mocha",
+    priority = 1000,
+  },
 
-   -- customize alpha options
+  -- Codeium auto complete AI plugin
+  {
+    "Exafunction/codeium.vim",
+    event = "BufEnter",
+    config = function()
+      vim.keymap.set("i", "<C-tab>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
+    end,
+  },
+
+  -- Conform to the style of the editor
+  {
+    "stevearc/conform.nvim",
+    event = "BufWritePre",
+    keys = {
+      {
+        "<leader>lf",
+        function() require("conform").format { async = true } end,
+        mode = "",
+        desc = "Format buffer",
+      },
+    },
+    opts = function(_, opts)
+      opts.fomatters_by_ft = {
+        html = { "htmlbeautifier" },
+        lua = { "luaformatter" },
+      }
+      return opts
+    end,
+  },
+
+  -- customize alpha options
   {
     "goolord/alpha-nvim",
     opts = function(_, opts)
       -- customize the dashboard header
       opts.section.header.val = {
-      " •┏┓         ┓┓┏•    ", 
-      " ┓┣ ┏┏┏┓┏┓┏┓┏┫┃┃┓┏┳┓ ",
-      " ┗┗┛┛┗┗┻┣┛┗ ┗┻┗┛┗┛┗┗ ",
-      "        ┛            ",
+        " •┏┓         ┓┓┏•    ",
+        " ┓┣ ┏┏┏┓┏┓┏┓┏┫┃┃┓┏┳┓ ",
+        " ┗┗┛┛┗┗┻┣┛┗ ┗┻┗┛┗┛┗┗ ",
+        "        ┛            ",
       }
       return opts
     end,
