@@ -13,7 +13,7 @@ return {
     "nvim-pack/nvim-spectre",
     event = "BufRead",
     keys = {
-      { "<leader>sr", "<cmd>lua require('spectre').open()<cr>", desc = "Spectre" },
+      { "<leader>s", "<cmd>lua require('spectre').open()<cr>", desc = "Spectre" },
     },
   },
 
@@ -34,9 +34,9 @@ return {
   {
     "Exafunction/codeium.vim",
     event = "BufEnter",
-    config = function()
-      vim.keymap.set("i", "<C-tab>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
-    end,
+    keys = {
+      { "<C-tab>", function() return vim.fn["codeium#Accept"]() end, expr = true, silent = true },
+    },
   },
 
   -- Conform to the style of the editor
