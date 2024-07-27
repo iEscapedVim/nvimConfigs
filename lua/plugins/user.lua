@@ -4,6 +4,25 @@
 ---@type LazySpec
 return {
 
+  -- Search & Destroy
+  {
+    "nvim-lua/plenary.nvim",
+  },
+
+  {
+    "nvim-pack/nvim-spectre",
+    event = "BufRead",
+    keys = {
+      { "<leader>sr", "<cmd>lua require('spectre').open()<cr>", desc = "Spectre" },
+    },
+  },
+
+  -- AstroJS LSP
+  {
+    "wuelnerdotexe/vim-astro",
+    ft = { "astro" },
+  },
+
   -- Catppuccin Mocha Theme
   {
     "catppuccin/nvim",
@@ -34,10 +53,27 @@ return {
     },
     opts = {
       formatters_by_ft = {
-          html = { "htmlbeautifier" },
-          lua  = { "stylua" },
-      }
-    }
+        sh = { "shfmt" },
+        zsh = { "shfmt" },
+        bash = { "shfmt" },
+        lua = { "stylua" },
+        css = { "prettier" },
+        scss = { "prettier" },
+        json = { "prettier" },
+        yaml = { "prettier" },
+        python = { "black" },
+        go = { "goimports" },
+        mdx = { "prettier" },
+        astro = { "prettier" },
+        jsonc = { "prettier" },
+        json5 = { "prettier" },
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+        html = { "htmlbeautifier" },
+        markdown = { "prettier" },
+        graphql = { "prettier" },
+      },
+    },
   },
 
   -- customize alpha options
