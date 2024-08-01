@@ -33,10 +33,7 @@ return {
   -- Codeium auto complete AI plugin
   {
     "Exafunction/codeium.vim",
-    event = "BufEnter",
-    keys = {
-      { "<C-tab>", function() return vim.fn["codeium#Accept"]() end, expr = true, silent = true },
-    },
+    event = "BufEnter", -- Adjust event as needed
   },
 
   -- Conform to the style of the editor
@@ -70,6 +67,8 @@ return {
         javascript = { "prettier" },
         typescript = { "prettier" },
         html = { "htmlbeautifier" },
+        smarty = { "htmlbeautifier" },
+        tailwindcss = { "htmlbeautifier" },
         markdown = { "prettier" },
         graphql = { "prettier" },
       },
@@ -82,10 +81,11 @@ return {
     opts = function(_, opts)
       -- customize the dashboard header
       opts.section.header.val = {
-        " •┏┓         ┓┓┏•    ",
-        " ┓┣ ┏┏┏┓┏┓┏┓┏┫┃┃┓┏┳┓ ",
-        " ┗┗┛┛┗┗┻┣┛┗ ┗┻┗┛┗┛┗┗ ",
-        "        ┛            ",
+        "                          ⟋|､",
+        " •┏┓         ┓┓┏•        (°､ ｡ 7",
+        " ┓┣ ┏┏┏┓┏┓┏┓┏┫┃┃┓┏┳┓     |､  ~ヽ",
+        " ┗┗┛┛┗┗┻┣┛┗ ┗┻┗┛┗┛┗┗     じしf_,)〳",
+        "        ┛                ",
       }
       return opts
     end,
